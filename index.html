@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Sistema de control de inventario de bebidas"
+    >
+
+    <meta
+        name="author"
+        content="Inventario de Bebidas"
+    >
+
+    <title>Inventario de Bebidas</title>
+
+    <link
+        rel="stylesheet"
+        href="CSS/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="encabezado">
+
+    <div class="contenedor encabezado-contenido">
+
+        <div class="marca">
+
+            <div class="logo">
+                IB
+            </div>
+
+            <div>
+
+                <h1>
+                    Inventario de Bebidas
+                </h1>
+
+                <p>
+                    Control y cuadre diario
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="fecha-actual">
+
+            <span>
+                Fecha del inventario
+            </span>
+
+            <strong id="fechaMostrada">
+                --/--/----
+            </strong>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<main class="contenedor principal">
+
+
+    <!-- =================================================
+         1. INVENTARIO DEL DÍA
+    ================================================== -->
+
+    <section class="seccion tarjeta">
+
+        <div class="titulo-seccion">
+
+            <div class="numero-seccion">
+                1
+            </div>
+
+            <div>
+
+                <h2>
+                    Inventario del día
+                </h2>
+
+                <p>
+                    Selecciona una fecha para crear, abrir y guardar
+                    el inventario correspondiente a ese día.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="campo-fecha">
+
+            <label for="fechaInventario">
+                Fecha del inventario
+            </label>
+
+            <input
+                type="date"
+                id="fechaInventario"
+                name="fechaInventario"
+            >
+
+        </div>
+
+
+        <div class="acciones-inventario">
+
+            <button
+                type="button"
+                id="btnAbrirInventario"
+                class="boton boton-principal"
+            >
+                Abrir / crear inventario
+            </button>
+
+
+            <button
+                type="button"
+                id="btnGuardarInventario"
+                class="boton boton-guardar"
+            >
+                Guardar inventario
+            </button>
+
+        </div>
+
+
+        <div
+            id="avisoInventario"
+            class="aviso-inventario"
+            aria-live="polite"
+        ></div>
+
+
+        <div class="historial">
+
+            <div class="historial-titulo">
+
+                <h3>
+                    Historial de inventarios
+                </h3>
+
+                <span>
+                    Aquí aparecerán los días que hayas guardado.
+                </span>
+
+            </div>
+
+
+            <div id="historialInventarios">
+
+                <div class="historial-vacio">
+
+                    <strong>
+                        Aún no hay inventarios guardados.
+                    </strong>
+
+                    <span>
+                        Cuando guardes tu primer inventario,
+                        aparecerá aquí.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         2. INVENTARIO INICIAL
+    ================================================== -->
+
+    <section class="seccion tarjeta">
+
+        <div class="titulo-seccion">
+
+            <div class="numero-seccion">
+                2
+            </div>
+
+            <div>
+
+                <h2>
+                    Inventario inicial
+                </h2>
+
+                <p>
+                    Registra las cantidades que tienes al comenzar el día.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PERSONAL -->
+
+        <div class="grupo-productos">
+
+            <div class="titulo-grupo">
+
+                <h3>
+                    Personal
+                </h3>
+
+                <span>
+                    Gaseosas, aguas y soda
+                </span>
+
+            </div>
+
+
+            <div class="productos-grid">
+
+
+                <div class="producto">
+
+                    <label for="inicial-cocacola-personal">
+                        Coca-Cola personal
+                    </label>
+
+                    <input
+                        type="number"
+                        id="inicial-cocacola-personal"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="producto">
+
+                    <label for="inicial-premio-personal">
+                        Premio personal
+                    </label>
+
+                    <input
+                        type="number"
+                        id="inicial-premio-personal"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="producto">
+
+                    <label for="inicial-quatro-personal">
+                        Quatro personal
+                    </label>
+
+                    <input
+                        type="number"
+                        id="inicial-quatro-personal"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="producto">
+
+                    <label for="inicial-agua-natural">
+                        Agua natural
+                    </label>
+
+                    <input
+                        type="number"
+                        id="inicial-agua-natural"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="producto">
+
+                    <label for="inicial-agua-gas">
+                        Agua con gas
+                    </label>
+
+                    <input
+                        type="number"
+                        id="inicial-agua-gas"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="producto">
+
+                    <label for="inicial-soda">
+                        Soda
+                    </label>
+
+                    <input
+                        type="number"
+                        id="inicial-soda"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 1.5 L -->
+
+        <div class="grupo-productos">
+
+            <div class="titulo-grupo">
+
+                <h3>
+                    Gaseosas 1.5 L
+                </h3>
+
+                <span>
+                    Coca-Cola, Premio y Quatro
+                </span>
+
+            </div>
+
+
+            <div class="productos-grid">
+
+
+                <div class="producto">
+
+                    <label for="inicial-cocacola-15">
+                        Coca-Cola 1.5 L
+                    </label>
+
+                    <input
+                        type="number"
+                        id="inicial-cocacola-15"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="producto">
+
+                    <label for="inicial-premio-15">
+                        Premio 1.5 L
+                    </label>
+
+                    <input
+                        type="number"
+                        id="inicial-premio-15"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="producto">
+
+                    <label for="inicial-quatro-15">
+                        Quatro 1.5 L
+                    </label>
+
+                    <input
+                        type="number"
+                        id="inicial-quatro-15"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 3 L -->
+
+        <div class="grupo-productos">
+
+            <div class="titulo-grupo">
+
+                <h3>
+                    Coca-Cola 3 L
+                </h3>
+
+                <span>
+                    Presentación de 3 litros
+                </span>
+
+            </div>
+
+
+            <div class="productos-grid">
+
+                <div class="producto">
+
+                    <label for="inicial-cocacola-3">
+                        Coca-Cola 3 L
+                    </label>
+
+                    <input
+                        type="number"
+                        id="inicial-cocacola-3"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- HIT -->
+
+        <div class="grupo-productos">
+
+            <div class="titulo-grupo">
+
+                <h3>
+                    Hit
+                </h3>
+
+                <span>
+                    Presentación de 1 litro
+                </span>
+
+            </div>
+
+
+            <div class="productos-grid">
+
+                <div class="producto">
+
+                    <label for="inicial-hit-1">
+                        Hit 1 L
+                    </label>
+
+                    <input
+                        type="number"
+                        id="inicial-hit-1"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         3. INGRESOS
+    ================================================== -->
+
+    <section class="seccion tarjeta">
+
+        <div class="titulo-seccion">
+
+            <div class="numero-seccion">
+                3
+            </div>
+
+            <div>
+
+                <h2>
+                    Ingreso de mercancía
+                </h2>
+
+                <p>
+                    Registra los productos que llegaron durante el día.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="mensaje-informativo">
+
+            Los ingresos se sumarán automáticamente
+            al inventario inicial.
+
+        </div>
+
+
+        <!-- PERSONAL -->
+
+        <div class="grupo-productos">
+
+            <div class="titulo-grupo">
+
+                <h3>
+                    Personal
+                </h3>
+
+            </div>
+
+
+            <div class="productos-grid">
+
+
+                <div class="producto">
+
+                    <label for="ingreso-cocacola-personal">
+                        Coca-Cola personal
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ingreso-cocacola-personal"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="producto">
+
+                    <label for="ingreso-premio-personal">
+                        Premio personal
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ingreso-premio-personal"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="producto">
+
+                    <label for="ingreso-quatro-personal">
+                        Quatro personal
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ingreso-quatro-personal"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="producto">
+
+                    <label for="ingreso-agua-natural">
+                        Agua natural
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ingreso-agua-natural"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="producto">
+
+                    <label for="ingreso-agua-gas">
+                        Agua con gas
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ingreso-agua-gas"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="producto">
+
+                    <label for="ingreso-soda">
+                        Soda
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ingreso-soda"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 1.5 L -->
+
+        <div class="grupo-productos">
+
+            <div class="titulo-grupo">
+
+                <h3>
+                    Gaseosas 1.5 L
+                </h3>
+
+            </div>
+
+
+            <div class="productos-grid">
+
+
+                <div class="producto">
+
+                    <label for="ingreso-cocacola-15">
+                        Coca-Cola 1.5 L
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ingreso-cocacola-15"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="producto">
+
+                    <label for="ingreso-premio-15">
+                        Premio 1.5 L
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ingreso-premio-15"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="producto">
+
+                    <label for="ingreso-quatro-15">
+                        Quatro 1.5 L
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ingreso-quatro-15"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 3 L -->
+
+        <div class="grupo-productos">
+
+            <div class="titulo-grupo">
+
+                <h3>
+                    Coca-Cola 3 L
+                </h3>
+
+            </div>
+
+
+            <div class="productos-grid">
+
+                <div class="producto">
+
+                    <label for="ingreso-cocacola-3">
+                        Coca-Cola 3 L
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ingreso-cocacola-3"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- HIT -->
+
+        <div class="grupo-productos">
+
+            <div class="titulo-grupo">
+
+                <h3>
+                    Hit
+                </h3>
+
+            </div>
+
+
+            <div class="productos-grid">
+
+                <div class="producto">
+
+                    <label for="ingreso-hit-1">
+                        Hit 1 L
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ingreso-hit-1"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         4. VENTAS DE MESAS
+    ================================================== -->
+
+    <section class="seccion tarjeta">
+
+        <div class="titulo-seccion">
+
+            <div class="numero-seccion">
+                4
+            </div>
+
+            <div>
+
+                <h2>
+                    Ventas de mesas
+                </h2>
+
+                <p>
+                    Registra aquí todo lo que salió para las mesas.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="ventasMesas"></div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         5. VENTAS DE DOMICILIOS
+    ================================================== -->
+
+    <section class="seccion tarjeta">
+
+        <div class="titulo-seccion">
+
+            <div class="numero-seccion">
+                5
+            </div>
+
+            <div>
+
+                <h2>
+                    Ventas de domicilios
+                </h2>
+
+                <p>
+                    Registra aquí todo lo que salió para domicilios.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="ventasDomicilios"></div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         6. RESUMEN
+    ================================================== -->
+
+    <section class="seccion tarjeta">
+
+        <div class="titulo-seccion">
+
+            <div class="numero-seccion">
+                6
+            </div>
+
+            <div>
+
+                <h2>
+                    Resumen del inventario
+                </h2>
+
+                <p>
+                    Aquí se calcularán automáticamente las cantidades.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="resumenInventario">
+
+            <div class="estado-inicial">
+
+                <h3>
+                    El resumen aparecerá aquí
+                </h3>
+
+                <p>
+                    Cuando registremos las ventas y hagamos
+                    los cálculos, esta sección mostrará
+                    el inventario disponible, las ventas
+                    y el saldo esperado.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         7. CONTEO INDIVIDUAL
+    ================================================== -->
+
+    <section class="seccion tarjeta">
+
+        <div class="titulo-seccion">
+
+            <div class="numero-seccion">
+                7
+            </div>
+
+            <div>
+
+                <h2>
+                    Conteo físico individual
+                </h2>
+
+                <p>
+                    Registra cuánto encontraste físicamente
+                    de cada producto.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="conteoIndividual">
+
+            <div class="estado-inicial">
+
+                <h3>
+                    Conteo individual
+                </h3>
+
+                <p>
+                    Aquí compararemos el saldo esperado
+                    de cada producto contra el conteo físico.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         8. CONTEO GENERAL
+    ================================================== -->
+
+    <section class="seccion tarjeta">
+
+        <div class="titulo-seccion">
+
+            <div class="numero-seccion">
+                8
+            </div>
+
+            <div>
+
+                <h2>
+                    Conteo físico general
+                </h2>
+
+                <p>
+                    Aquí se compara automáticamente el total físico
+                    de cada grupo.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="conteo-general-grid">
+
+
+            <!-- PERSONAL -->
+
+            <div class="conteo-general-card">
+
+                <h3>
+                    Personal
+                </h3>
+
+                <p>
+                    Coca-Cola personal + Premio personal +
+                    Quatro personal + Agua natural +
+                    Agua con gas + Soda
+                </p>
+
+
+                <div class="dato-general">
+
+                    <span>
+                        Saldo esperado
+                    </span>
+
+                    <strong id="generalEsperadoPersonal">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="dato-general">
+
+                    <span>
+                        Conteo físico
+                    </span>
+
+                    <strong id="generalFisicoPersonal">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="dato-general">
+
+                    <span>
+                        Diferencia
+                    </span>
+
+                    <strong id="generalDiferenciaPersonal">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 1.5 L -->
+
+            <div class="conteo-general-card">
+
+                <h3>
+                    Gaseosas 1.5 L
+                </h3>
+
+                <p>
+                    Coca-Cola 1.5 L + Premio 1.5 L +
+                    Quatro 1.5 L
+                </p>
+
+
+                <div class="dato-general">
+
+                    <span>
+                        Saldo esperado
+                    </span>
+
+                    <strong id="generalEsperado15">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="dato-general">
+
+                    <span>
+                        Conteo físico
+                    </span>
+
+                    <strong id="generalFisico15">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="dato-general">
+
+                    <span>
+                        Diferencia
+                    </span>
+
+                    <strong id="generalDiferencia15">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 3 L -->
+
+            <div class="conteo-general-card">
+
+                <h3>
+                    Coca-Cola 3 L
+                </h3>
+
+                <p>
+                    Esta presentación se controla individualmente.
+                </p>
+
+
+                <div class="dato-general">
+
+                    <span>
+                        Saldo esperado
+                    </span>
+
+                    <strong id="generalEsperado3">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="dato-general">
+
+                    <span>
+                        Conteo físico
+                    </span>
+
+                    <strong id="generalFisico3">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="dato-general">
+
+                    <span>
+                        Diferencia
+                    </span>
+
+                    <strong id="generalDiferencia3">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HIT -->
+
+            <div class="conteo-general-card">
+
+                <h3>
+                    Hit
+                </h3>
+
+                <p>
+                    Hit 1 L
+                </p>
+
+
+                <div class="dato-general">
+
+                    <span>
+                        Saldo esperado
+                    </span>
+
+                    <strong id="generalEsperadoHit">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="dato-general">
+
+                    <span>
+                        Conteo físico
+                    </span>
+
+                    <strong id="generalFisicoHit">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="dato-general">
+
+                    <span>
+                        Diferencia
+                    </span>
+
+                    <strong id="generalDiferenciaHit">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         BOTONES
+    ================================================== -->
+
+    <section class="acciones">
+
+        <button
+            type="button"
+            id="btnCalcular"
+            class="boton boton-principal"
+        >
+            Calcular inventario
+        </button>
+
+
+        <button
+            type="button"
+            id="btnLimpiar"
+            class="boton boton-secundario"
+        >
+            Limpiar datos
+        </button>
+
+    </section>
+
+
+
+    <!-- =================================================
+         MENSAJE FINAL
+    ================================================== -->
+
+    <section
+        id="mensajeFinal"
+        class="mensaje-final"
+        aria-live="polite"
+    ></section>
+
+
+</main>
+
+
+
+<footer class="pie">
+
+    <div class="contenedor">
+
+        <p>
+            Sistema de Control de Inventario de Bebidas
+        </p>
+
+        <span>
+            Registro de inventario · Ventas · Cuadre
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
